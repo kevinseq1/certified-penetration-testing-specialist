@@ -116,3 +116,18 @@
 	2. Passive Subdomain Enumeration
 		1. Relies on external sources of information to discover subdomains without directly querying the target DNS servers (Certificate Transparency (CT) logs, public repositories of SSL/TLS certificates. Often include a list of associated subdomains in their Subject Alternative Name (SAN) field.)
 		2. Search Engines like Google or DuckDuckGo along side the search operators (`site:`)
+- Subdomain enumeration tools:
+	- [dnsenum](https://github.com/fwaeytens/dnsenum)
+		- DNS Record Enumeration
+		- Zone Transfer Attempts
+		- Subdomain Brute-Forcing
+		- Google Scraping
+		- Reverse Lookup
+		- WHOIS Lookups
+		- `dnsenum --enum <domain name> -f /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -r
+	- [fierce](https://github.com/mschwager/fierce)
+	- [dnsrecon](https://github.com/darkoperator/dnsrecon)
+	- [amass](https://github.com/owasp-amass/amass)
+	- [assetfinder](https://github.com/tomnomnom/assetfinder)
+	- [puredns](https://github.com/d3mondev/puredns)
+	

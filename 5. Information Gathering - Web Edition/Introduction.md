@@ -130,4 +130,12 @@
 	- [amass](https://github.com/owasp-amass/amass)
 	- [assetfinder](https://github.com/tomnomnom/assetfinder)
 	- [puredns](https://github.com/d3mondev/puredns)
-	
+
+### DNS Zone Transfers
+
+- Zone Transfer Requests (AXFR)
+- SOA Record Transfer
+- DNS Records Transmission
+- Zone Transfer Complete
+- Acknowledgement (ACK)
+- `dig axfr @<dns server responsible for the server> <domain name>`

@@ -139,3 +139,73 @@
 - Zone Transfer Complete
 - Acknowledgement (ACK)
 - `dig axfr @<dns server responsible for the server> <domain name>`
+
+### Virtual Hosts
+
+- Web servers can be configured to host multiple websites or applications on a single server, they achieve this through virtual hosting.
+	- This is achieved by leveraging the HTTP host header in the HTTP request.
+	- `VHost fuzzing` is a technique to discover public and non-public `subdomains` and `VHosts` by testing various hostnames against a known IP address.
+	- Virtual hosts can also be configured to use different domains, not just subdomains. 
+	- Browser Requests a Website -> Host Header Reveals the Domain -> Web Server Determines the Virtual Host (Check its Vhost conf file) -> Serves the right content.
+- Types of virtual hosting:
+	- Name-based Virtual Hosting (Based on host headers)
+	- IP-Based Virtual Hosting (Based on IP addresses)
+	- Port-Based Virtual Hosting (Based on port numbers)
+- Virtual host fuzzing tools:
+	- [gobuster](https://github.com/OJ/gobuster)
+	- [Feroxbuster](https://github.com/epi052/feroxbuster)
+	- [ffuf](https://github.com/ffuf/ffuf)
+	- `gobuster vhost -u http://<target IP> -w <wordlist> --append-domain`
+		- `-t` flag to increase the number of threads for faster scanning.
+		- `-k` flag can ignore SSL/TLS certificate errors.
+		- `-o` flag to save the output to a file for later analysis.
+
+### Certificate Transparency Logs
+
+- `Certificate Transparency` (`CT`) logs are public, append-only ledgers that record the issuance of SSL/TLS certificates. Whenever a Certificate Authority (CA) issues a new certificate, it must submit it to multiple CT logs. Independent organisations maintain these logs and are open for anyone to inspect.
+- This transparency serves several crucial purposes:
+	- Early Detection of Rogue Certificates
+	- Accountability for Certificate Authorities
+	- Strengthening the Web PKI (Public Key Infrastructure)
+- Gain access to a historical and comprehensive view of a domain's subdomains, including those that might not be actively used or easily guessable.
+- CT logs can unveil subdomains associated with old or expired certificates. These subdomains might host outdated software or configurations, making them potentially vulnerable to exploitation.
+- Searching CT logs:
+	- [crt.sh](https://crt.sh/)
+		- `curl -s "https://crt.sh/?q=facebook.com&output=json" | jq -r '.[]| select(.name_value | contains("dev")) | .name_value' | sort -u`
+	- [Censys](https://search.censys.io/)
+
+### Fingerprinting
+
+- Helps with:
+	- targeted attacks
+	- Identifying Misconfigurations
+	- Prioritizing Targets
+	- Building a Comprehensive Profile
+- Techniques:
+	- Banner Grabbing
+	- Analyzing HTTP headers
+		- The `Server` header typically discloses the web server software, while the `X-Powered-By` header might reveal additional technologies like scripting languages or frameworks.
+	- Probing for Specific Responses
+	- Analyzing Page Content
+- Tools:
+	- `curl -I <domain name>`
+	- Wappalyzer
+	- BuiltWith
+	- WhatWeb
+	- Nmap
+	- Netcraft
+	- wafw00f
+		- `pip3 install git+https://github.com/EnableSecurity/wafw00f`
+		- `wafw00f <domain name>
+	- Nikto
+```
+sudo apt update && sudo apt install -y perl
+git clone https://github.com/sullo/nikto
+cd nikto/program 
+chmod +x ./nikto.pl
+
+nikto -h <domain name> -Tuning b
+```
+
+
+

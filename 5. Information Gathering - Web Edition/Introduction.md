@@ -207,5 +207,34 @@ chmod +x ./nikto.pl
 nikto -h <domain name> -Tuning b
 ```
 
+### Crawling
 
+- Crawlers meticulously collect these links, allowing you to map out a website's structure, discover hidden pages, and identify relationships with external resources.
+- Recursively crawls all the link from the seed URL
+- Two type of crawling:
+	- Breadth-First Crawling
+	- Depth-First Crawling
+- Popular web crawlers:
+	- Burp Suite Spider
+	- OWASP ZAP (Zed Attack Proxy)
+	- Scrapy (Python Framework)
+	- Apache Nutch (Scalable Crawler)
+	- Scrapy
+		- `pip install scrapy`
+	- ReconSpider
+		- `wget -O ReconSpider.zip https://academy.hackthebox.com/storage/modules/144/ReconSpider.v1.2.zip`
+		- `python3 ReconSpider.py <domain name>`
 
+### robots.txt
+
+- `robots.txt` is a simple text file placed in the root directory of a website (e.g., `www.example.com/robots.txt`). It adheres to the Robots Exclusion Standard, guidelines for how web crawlers should behave when visiting a website. This file contains instructions in the form of "directives" that tell bots which parts of the website they can and cannot crawl.
+
+### Well-Known URIs
+
+- The `.well-known` standard, defined in [RFC 8615](https://datatracker.ietf.org/doc/html/rfc8615), serves as a standardized directory within a website's root domain. This designated location, typically accessible via the `/.well-known/` path on a web server, centralizes a website's critical metadata, including configuration files and information related to its services, protocols, and security mechanisms.
+- The `Internet Assigned Numbers Authority` (`IANA`) maintains a [registry](https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml) of `.well-known` URIs
+	- /.well-known/security.txt
+	- /.well-known/change-password
+	- /.well-known/openid-configuration
+	- /.well-known/assetlinks.json
+	- /.well-known/mta-sts.txt

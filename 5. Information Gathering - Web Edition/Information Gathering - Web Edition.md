@@ -138,7 +138,7 @@
 - DNS Records Transmission
 - Zone Transfer Complete
 - Acknowledgement (ACK)
-- `dig axfr @<dns server responsible for the server> <domain name>`
+- `dig axfr @<dns server responsible for the server> <domain name>
 
 ### Virtual Hosts
 
@@ -173,6 +173,7 @@
 	- [crt.sh](https://crt.sh/)
 		- `curl -s "https://crt.sh/?q=facebook.com&output=json" | jq -r '.[]| select(.name_value | contains("dev")) | .name_value' | sort -u`
 	- [Censys](https://search.censys.io/)
+
 
 ### Fingerprinting
 
@@ -282,8 +283,41 @@ nikto -h <domain name> -Tuning b
 	    - `site:example.com inurl:backup`
 	    - `site:example.com filetype:sql`
 
+
 ### Web Archives
 
 - [Internet Archive's Wayback Machine](https://web.archive.org/)
 	- Crawling -> Archiving -> Accessing
-- 
+
+### Automating Recon
+
+- Why automate reconnaissance?
+	- Efficiency
+	- Scalability
+	- Consistency
+	- Comprehensive Coverage
+	- Integration
+- Reconnaissance Frameworks:
+	- [FinalRecon](https://github.com/thewhiteh4t/FinalRecon)
+		- Header Information
+		- WhoIs Lookup
+		- SSL Certificate Information
+		- Crawler
+		- DNS Enumeration
+		- Subdomain Enumeration
+		- Directory Enumeration
+		- Wayback Machine
+	- [Recon-ng](https://github.com/lanmaster53/recon-ng)
+	- [theHarvester](https://github.com/laramies/theHarvester)
+	- [SpiderFoot](https://github.com/smicallef/spiderfoot)
+	- [OSINT Framework](https://osintframework.com/)
+	
+```
+git clone https://github.com/thewhiteh4t/FinalRecon.git
+cd FinalRecon
+pip3 install -r requirements.txt 
+chmod +x ./finalrecon.py
+./finalrecon.py -help
+```
+
+

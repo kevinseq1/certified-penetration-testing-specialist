@@ -85,4 +85,9 @@
 		- `set RHOST 10.10.10.10`
 		- `check`: can be used to check if the server is vulnerable
 		- `run` or `exploit`
-		
+
+### Types Of Shells
+
+### Privilege Escalation
+
+### Transferring Files

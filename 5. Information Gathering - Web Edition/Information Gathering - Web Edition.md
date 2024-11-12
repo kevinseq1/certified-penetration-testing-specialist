@@ -48,7 +48,7 @@
 - Checks local cache -> DNS resolver cache -> Root Name Server -> TLD Name Server -> Authoritative Name Server 
 - `hosts` file is a simple text file used to map hostnames to IP addresses, providing a manual method of domain name resolution that bypasses the DNS process.
 	- Windows: `C:\Windows\System32\drivers\etc\hosts`
-	- Linux: `/etc/hosts`
+	- Linux: `/etc/hosts` (*Remember to add your domains and vhosts as well)
 ```
 127.0.0.1       localhost
 192.168.1.10    devserver.local
@@ -155,10 +155,12 @@
 	- [gobuster](https://github.com/OJ/gobuster)
 	- [Feroxbuster](https://github.com/epi052/feroxbuster)
 	- [ffuf](https://github.com/ffuf/ffuf)
-	- `gobuster vhost -u http://<target IP> -w <wordlist> --append-domain`
+	- `gobuster vhost -u http://inlanefreight.htb:81 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain`
 		- `-t` flag to increase the number of threads for faster scanning.
 		- `-k` flag can ignore SSL/TLS certificate errors.
 		- `-o` flag to save the output to a file for later analysis.
+	- *A virtual host can also have multiple sub domains. Remember to perform reconnaissance on each subdomain.
+	
 
 ### Certificate Transparency Logs
 
@@ -220,11 +222,13 @@ nikto -h <domain name> -Tuning b
 	- OWASP ZAP (Zed Attack Proxy)
 	- Scrapy (Python Framework)
 	- Apache Nutch (Scalable Crawler)
-	- Scrapy
-		- `pip install scrapy`
 	- ReconSpider
+		- Scrapy
+		- `pip install scrapy`
 		- `wget -O ReconSpider.zip https://academy.hackthebox.com/storage/modules/144/ReconSpider.v1.2.zip`
+		- `unzip ReconSpider.zip`
 		- `python3 ReconSpider.py <domain name>`
+- *Remember to check `robots.txt` before crawling
 
 ### robots.txt
 

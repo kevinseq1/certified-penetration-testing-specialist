@@ -8,11 +8,15 @@
 - Dealing with the risk
 - Monitoring Risk 
 
+---
+
 ### Common Terms
 
 - **Reverse Shell:** Initiates a connection back to a "Listener" on our attack box
 - **Bind Shell:** "Binds" to a specific port on the target host and waits for a connection from our attack box.
 - **Web Shell:** Runs OS commands via the web browser, typically not interactive or semi-interactive. It can also be used to run single commands (i.e. leveraging a file upload vulnerability and uploading a PHP script to run a single command)
+
+---
 
 ### Basic Tools
 
@@ -20,6 +24,8 @@
 - **[Socat](https://linux.die.net/man/1/socat):** It has a few features that `natcat` does not support, like forwarding ports and connecting to serial devices.
 	- It can also be used to [upgrade a shell to a fully interactive TTY](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/#method-2-using-socat) 
 	- [Standalone Binary](https://github.com/andrew-d/static-binaries) of `Socat` can be transferred to a system after obtaining remote code execution to get a more stable reverse shell connection.
+
+---
 
 ### Service Scanning
 
@@ -52,6 +58,8 @@
 	- [onesixtyone](https://github.com/trailofbits/onesixtyone) can be used to brute force the community string names using a dictionary file of community strings such as the `dict.txt` file.
 		- `onesixtyone -c dict.txt 10.129.42.254`
 
+---
+
 ### Web Enumeration
 
 - [ffuf](https://github.com/ffuf/ffuf) and [GoBuster](https://github.com/OJ/gobuster) can be used for directory enumeration
@@ -66,6 +74,8 @@
 - [EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness) can be used to take screenshots of target web applications, fingerprint them, and identify possible default credentials.
 - `whatweb <target ip>` can be used to extract the version of web servers, supporting frameworks, and applications.
 	- `whatweb --no-errors <target ip>`
+
+---
 
 ### Public Exploits
 
@@ -86,8 +96,16 @@
 		- `check`: can be used to check if the server is vulnerable
 		- `run` or `exploit`
 
+---
+
 ### Types Of Shells
 
+
+---
+
 ### Privilege Escalation
+
+
+---
 
 ### Transferring Files

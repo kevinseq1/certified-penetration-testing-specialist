@@ -23,6 +23,8 @@
 	- Social Media Analysis
 	- Code Repositories
 
+---
+
 ### WHOIS
 
 - Lets you look up who is responsible for various online assets:
@@ -41,6 +43,8 @@
 - Check out this OG: [Elizabeth Feinler](https://en.wikipedia.org/wiki/Elizabeth_J._Feinler)
 - Registration Data Access Protocol (RDAP): Offers a more granular and privacy-conscious approach to accessing domain registration data.
 - [WhoisFreaks](https://whoisfreaks.com/): Helps in accessing historical WHOIS records. Can reveal changes in ownership, contact information, or technical details over time.
+
+---
 
 ### DNS
 
@@ -68,6 +72,8 @@
 | `SOA`       | Start of Authority Record | Specifies administrative information about a DNS zone, including the primary name server, responsible person's email, and other parameters. | `example.com.` IN SOA `ns1.example.com. admin.example.com. 2024060301 10800 3600 604800 86400` |     |
 | `SRV`       | Service Record            | Defines the hostname and port number for specific services.                                                                                 | `_sip._udp.example.com.` IN SRV 10 5 5060 `sipserver.example.com.`                             |     |
 | `PTR`       | Pointer Record            | Used for reverse DNS lookups, mapping an IP address to a hostname.                                                                          | `1.2.0.192.in-addr.arpa.` IN PTR `www.example.com.`                                            |     |
+
+---
 
 ### Digging DNS
 
@@ -100,6 +106,9 @@
 	dig domain.com ANY
 	```
 
+
+---
+
 ### Sub Domains 
 
 - Development and Staging Environments
@@ -131,6 +140,9 @@
 	- [assetfinder](https://github.com/tomnomnom/assetfinder)
 	- [puredns](https://github.com/d3mondev/puredns)
 
+
+---
+
 ### DNS Zone Transfers
 
 - Zone Transfer Requests (AXFR)
@@ -139,6 +151,9 @@
 - Zone Transfer Complete
 - Acknowledgement (ACK)
 - `dig axfr @<dns server responsible for the server> <domain name>
+
+
+---
 
 ### Virtual Hosts
 
@@ -162,6 +177,9 @@
 	- *A virtual host can also have multiple sub domains. Remember to perform reconnaissance on each subdomain.
 	
 
+
+---
+
 ### Certificate Transparency Logs
 
 - `Certificate Transparency` (`CT`) logs are public, append-only ledgers that record the issuance of SSL/TLS certificates. Whenever a Certificate Authority (CA) issues a new certificate, it must submit it to multiple CT logs. Independent organisations maintain these logs and are open for anyone to inspect.
@@ -176,6 +194,8 @@
 		- `curl -s "https://crt.sh/?q=facebook.com&output=json" | jq -r '.[]| select(.name_value | contains("dev")) | .name_value' | sort -u`
 	- [Censys](https://search.censys.io/)
 
+
+---
 
 ### Fingerprinting
 
@@ -210,6 +230,9 @@ chmod +x ./nikto.pl
 nikto -h <domain name> -Tuning b
 ```
 
+
+---
+
 ### Crawling
 
 - Crawlers meticulously collect these links, allowing you to map out a website's structure, discover hidden pages, and identify relationships with external resources.
@@ -230,9 +253,15 @@ nikto -h <domain name> -Tuning b
 		- `python3 ReconSpider.py <domain name>`
 - *Remember to check `robots.txt` before crawling
 
+
+---
+
 ### robots.txt
 
 - `robots.txt` is a simple text file placed in the root directory of a website (e.g., `www.example.com/robots.txt`). It adheres to the Robots Exclusion Standard, guidelines for how web crawlers should behave when visiting a website. This file contains instructions in the form of "directives" that tell bots which parts of the website they can and cannot crawl.
+
+
+---
 
 ### Well-Known URIs
 
@@ -243,6 +272,9 @@ nikto -h <domain name> -Tuning b
 	- /.well-known/openid-configuration
 	- /.well-known/assetlinks.json
 	- /.well-known/mta-sts.txt
+
+
+---
 
 ### Search Engine Discovery
 
@@ -288,10 +320,15 @@ nikto -h <domain name> -Tuning b
 	    - `site:example.com filetype:sql`
 
 
+---
+
 ### Web Archives
 
 - [Internet Archive's Wayback Machine](https://web.archive.org/)
 	- Crawling -> Archiving -> Accessing
+
+
+---
 
 ### Automating Recon
 

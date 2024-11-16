@@ -1,0 +1,38 @@
+{
+	"nodes":[
+		{"id":"0bec1887434c7309","type":"group","x":-440,"y":-260,"width":480,"height":460,"color":"6","label":"Basic Metric Group"},
+		{"id":"f54be04bb830a976","type":"group","x":360,"y":-260,"width":460,"height":210,"color":"4","label":"Environmental Metric Group"},
+		{"id":"898e5472b4672743","type":"group","x":60,"y":-260,"width":280,"height":260,"color":"3","label":"Temporal Metric Group"},
+		{"id":"58f7f12e4a3f6793","type":"text","text":"Attack Complexity","x":-420,"y":-80,"width":195,"height":50,"color":"6"},
+		{"id":"1fd28497ce6f6c72","type":"text","text":"Attack Vector","x":-420,"y":-140,"width":200,"height":50,"color":"6"},
+		{"id":"3dd6bf85024192c3","type":"text","text":"User Interaction","x":-420,"y":-20,"width":200,"height":50,"color":"6"},
+		{"id":"6b5460e30ed747bf","type":"text","text":"Privileges Required","x":-420,"y":40,"width":200,"height":50,"color":"6"},
+		{"id":"9e8e737d76cca339","type":"text","text":"Scope","x":-300,"y":120,"width":220,"height":50,"color":"6"},
+		{"id":"783a5a112bba66a7","type":"text","text":"Exploitability Metric","x":-420,"y":-220,"width":200,"height":50},
+		{"id":"9df8aee835b5a1eb","type":"text","text":"Impact Metric","x":-200,"y":-220,"width":200,"height":50},
+		{"id":"e0ba57ba886c58d2","type":"text","text":"Confidentiality Impact","x":-200,"y":-140,"width":220,"height":50,"color":"6"},
+		{"id":"f8825a5636403804","type":"text","text":"Integrity Impact","x":-200,"y":-80,"width":220,"height":50,"color":"6"},
+		{"id":"9cbd691384409ffe","type":"text","text":"Availability Impact","x":-200,"y":-20,"width":220,"height":50,"color":"6"},
+		{"id":"7fa218c62049a20b","type":"text","text":"Exploit Code Maturity","x":100,"y":-220,"width":200,"height":50,"color":"3"},
+		{"id":"4645e4f200c5f1b1","type":"text","text":"Remediation Level","x":100,"y":-160,"width":200,"height":50,"color":"3"},
+		{"id":"9ac13d13358af898","type":"text","text":"Report Confidence","x":100,"y":-100,"width":200,"height":50,"color":"3"},
+		{"id":"0621128d7163bf50","type":"text","text":"Modified Base Metrics","x":380,"y":-240,"width":200,"height":50,"color":"4"},
+		{"id":"bf22c0a09b0e2f47","type":"text","text":"Confidentiality Requirement","x":600,"y":-240,"width":200,"height":50,"color":"4"},
+		{"id":"ccf35f3c58c8ea4b","type":"text","text":"Integrity Requirement","x":600,"y":-180,"width":200,"height":50,"color":"4"},
+		{"id":"eef3b0852e80a87f","type":"text","text":"Availability Requirement","x":600,"y":-120,"width":200,"height":50,"color":"4"},
+		{"id":"f66c86d6a2719ce3","x":-947,"y":-119,"width":287,"height":119,"type":"text","text":"The Exploitability metrics are a way to evaluate the technical means needed to exploit the issue using the metrics below:"},
+		{"id":"1e99ec12a30f9e29","x":-220,"y":-720,"width":340,"height":200,"type":"text","text":"The Impact metrics represent the repercussions of successfully exploiting an issue and what is impacted in an environment, and it is based on the CIA triad. The CIA triad is an acronym for `Confidentiality`, `Integrity`, and `Availability`."},
+		{"id":"8f812a88064fc31e","x":260,"y":-720,"width":371,"height":200,"color":"3","type":"text","text":"The `Exploit Code Maturity` metric represents the probability of an issue being exploited based on ease of exploitation techniques. There are various metric values associated with this metric, including `Not Defined`, `High`, `Functional`, `Proof-of-Concept`, and `Unproven`."},
+		{"id":"1095a3c6f14e9266","x":440,"y":60,"width":320,"height":200,"color":"3","type":"text","text":"The `Remediation level` is used to identify the prioritization of a vulnerability. The metric values associated with this metric include `Not Defined`, `Unavailable`, `Workaround`, `Temporary Fix`, and `Official Fix`."},
+		{"id":"bd85fe32f4ad3429","x":68,"y":260,"width":352,"height":180,"color":"3","type":"text","text":"`Report Confidence` represents the validation of the vulnerability and how accurate the technical details of the issue are. The metric values associated with this metric include `Not Defined`, `Confirmed`, `Reasonable`, and `Unknown`."},
+		{"id":"255676e3665ad6fc","x":807,"y":-557,"width":353,"height":197,"color":"4","type":"text","text":"The `Modified Base metrics` represent the metrics that can be altered if the affected organization deems a more significant risk in Confidentiality, Integrity, and Availability to their organization. The values associated with this metric are `Not Defined`, `High`, `Medium`, and `Low`."}
+	],
+	"edges":[
+		{"id":"ee702aa38764c1d8","fromNode":"783a5a112bba66a7","fromSide":"left","toNode":"f66c86d6a2719ce3","toSide":"right"},
+		{"id":"344a9fca705a5584","fromNode":"9df8aee835b5a1eb","fromSide":"top","toNode":"1e99ec12a30f9e29","toSide":"bottom"},
+		{"id":"f695a8c2149673ea","fromNode":"7fa218c62049a20b","fromSide":"right","toNode":"8f812a88064fc31e","toSide":"left","color":"3"},
+		{"id":"8365e78a72755c45","fromNode":"4645e4f200c5f1b1","fromSide":"right","toNode":"1095a3c6f14e9266","toSide":"left","color":"3"},
+		{"id":"7ca5d511052c1dce","fromNode":"9ac13d13358af898","fromSide":"bottom","toNode":"bd85fe32f4ad3429","toSide":"top","color":"3"},
+		{"id":"a29d52e3a3fbb549","fromNode":"0621128d7163bf50","fromSide":"right","toNode":"255676e3665ad6fc","toSide":"left"}
+	]
+}

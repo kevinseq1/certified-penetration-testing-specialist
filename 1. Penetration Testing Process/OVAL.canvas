@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"79ca13146dbd9440","x":-960,"y":-500,"width":1920,"height":1100,"color":"6","type":"group","label":"OVAL Process"},
+		{"id":"286e88789ccd186c","x":-820,"y":-480,"width":250,"height":260,"color":"6","type":"text","text":"Desired Security Settings in XML (OVAL & XCCDF):\n- Policy (DCID/DIACAP)\n- CISecurity guides \n- STIGs\n- IAVAs\n- FISMA\n- SANS Top 20"},
+		{"id":"4d6bfe4c844f87f3","x":-800,"y":0,"width":250,"height":60,"color":"6","type":"text","text":"Policy Compliant System"},
+		{"id":"0bff709c0bfb79f8","type":"text","text":"New Information in XML (OVAL & XCCDF):\n- Advisory (IAVA)\n- Worn Notification\n- Product Vulnerability (CVE)\n- Policy Change\n- INFOCON Elevation","x":-360,"y":-480,"width":250,"height":260,"color":"6"},
+		{"id":"f17da660f68c0abd","x":-380,"y":0,"width":240,"height":60,"color":"6","type":"text","text":"Access Security Policy Compliance"},
+		{"id":"92d4c3dc360fce85","type":"text","text":"Meet Security Policy?","x":120,"y":0,"width":250,"height":60,"color":"6"},
+		{"id":"35e05553753a2907","type":"text","text":"Testing Output in XML (OVAL):\n- IAVA Compliance\n- XCCDF-generated Report\n- Red/Blue Team Report\n- IA Situational Awareness\n- FISMA Compliance\n- SANS Top 20 Compliance","x":120,"y":-480,"width":280,"height":240,"color":"6"},
+		{"id":"0a36963c3e28df96","type":"text","text":"Remediation Strategies in XML:\n- Vendor Patch/Work Around\n- Configuration Changes\n- Red/Blue Team Recommendations\n- IA Management Guidance\n- FISMA Corrective Actions\n- Advisory Recommendations","x":560,"y":-480,"width":340,"height":240,"color":"6"},
+		{"id":"ed8ea06363000645","type":"text","text":"Implement Change","x":660,"y":460,"width":250,"height":60,"color":"6"},
+		{"id":"7004b8700c155b0b","x":-340,"y":60,"width":184,"height":50,"color":"6","type":"text","text":"Compare system state to OVAL definition"}
+	],
+	"edges":[
+		{"id":"d1281921aaf89347","fromNode":"286e88789ccd186c","fromSide":"left","toNode":"4d6bfe4c844f87f3","toSide":"left"},
+		{"id":"c21dfa05920b8db2","fromNode":"0bff709c0bfb79f8","fromSide":"left","toNode":"f17da660f68c0abd","toSide":"left"},
+		{"id":"5eac9bc99efeaae6","fromNode":"f17da660f68c0abd","fromSide":"right","toNode":"35e05553753a2907","toSide":"left"},
+		{"id":"506bed25814e6fc1","fromNode":"92d4c3dc360fce85","fromSide":"right","toNode":"ed8ea06363000645","toSide":"left","label":"No"},
+		{"id":"84997355a97d42fe","fromNode":"0a36963c3e28df96","fromSide":"bottom","toNode":"ed8ea06363000645","toSide":"top"},
+		{"id":"aeb1696b4a011b3d","fromNode":"f17da660f68c0abd","fromSide":"right","toNode":"92d4c3dc360fce85","toSide":"left"},
+		{"id":"02a2e20bb3f289ea","fromNode":"4d6bfe4c844f87f3","fromSide":"right","toNode":"f17da660f68c0abd","toSide":"left"},
+		{"id":"a127a475ae7629ff","fromNode":"92d4c3dc360fce85","fromSide":"bottom","toNode":"4d6bfe4c844f87f3","toSide":"bottom","label":"Yes"},
+		{"id":"a6e7c969e62c2324","fromNode":"ed8ea06363000645","fromSide":"bottom","toNode":"4d6bfe4c844f87f3","toSide":"bottom","label":"Commercial or open source tool\n implementation"}
+	]
+}

@@ -20,4 +20,11 @@
 ```
 curl -i -X OPTIONS http://SERVER_IP:PORT/
 ```
-- We can try send the other requests the server accepts like `HEAD` (This verb does not send a response)
+- We can try sending the other requests the server accepts like `HEAD` (This verb does not send a response)
+
+### Bypassing Security Filters
+
+- Another type of HTTP verb tampering vulnerability is caused by Insecure coding errors made during the development of the web application, which lead to web application not covering all HTTP methods. 
+	- Eg. Commonly found in security filters that detect malicious requests. For example, if a security filter used to detect injection vulnerabilities and only checked for for injection in POST parameters (e.g. `$_POST['parameter'])` it may be possible to bypass it by simply changing the request method to `GET`)
+	- We can test this by running basic linux commands and capturing the request in Burp and changing the request methods and observing the results.
+	

